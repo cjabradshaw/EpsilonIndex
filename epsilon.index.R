@@ -203,7 +203,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
 ## COLUMN 2: 'gender' - researcher's gender ("F" or "M")
 ## COLUMN 3: 'i10' - researcher's i10 index (# papers with ≥ 10 citations); must be > 0
 ## COLUMN 4: 'h' - researcher's h-index
-## COLUMN 5: 'maxcit' - number of citations of researcher's peer-reviewed paper with most citations
+## COLUMN 5: 'maxcit' - number of citations of researcher's most cited peer-reviewed paper
 ## COLUMN 6: 'firstyrpub' - the year of the researcher's first published peer-reviewed paper
 
 example.dat <- read.csv("datasample.csv", header=T) # .csv file of data for researcher sample
