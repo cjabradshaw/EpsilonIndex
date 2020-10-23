@@ -1,7 +1,10 @@
 # EpsilonIndex
-An R function to assess the ε-index of a researcher's relative citation performance
+R function to assess the ε-index of a researcher's relative citation performance
 
-R function to estimate the ε-index (epsilon index) for ranking researchers. Existing citation-based indices used to rank research performance do not permit a fair comparison of researchers among career stages or disciplines, nor do they treat women and men equally. We designed the ε-index, which is simple to calculate, based on open-access data, corrects for disciplinary variation, can be adjusted for career breaks, and sets a sample-specific threshold above and below which a researcher is deemed to be performing above or below expectation.
+Prof Corey J. A. Bradshaw, Flinders University, Adelaide, Australia (October 2020)
+
+
+Existing citation-based indices used to rank research performance do not permit a fair comparison of researchers among career stages or disciplines, nor do they treat women and men equally. We designed the ε-index, which is simple to calculate, based on open-access data, corrects for disciplinary variation, can be adjusted for career breaks, and sets a sample-specific threshold above and below which a researcher is deemed to be performing above or below expectation.
 
 Code accompanies the article:
 
