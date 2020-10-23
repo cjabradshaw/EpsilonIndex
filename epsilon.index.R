@@ -113,7 +113,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   dat.out <- data.frame(dat.samp$personID, dat.samp$gender, dat.samp$y.e, resid(fit.yAlin), expectation, dat.samp$mi, dat.samp$h)
   dat.sort <- dat.out[order(dat.out[,4],decreasing=T),1:7]
   dat.sort$rank <- seq(1,length(dat.samp$personID),1)
-  colnames(dat.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-quotient","h-index", "rank")
+  colnames(dat.sort) <- c("person","gender","yrs.publ", "eindex","expectation","m-quotient","h-index", "rank")
   dat.sort$person <- as.character(dat.sort$person)
   dat.sort$gender <- as.character(dat.sort$gender)
   dat.sort$expectation <- as.character(dat.sort$expectation)
@@ -137,7 +137,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   datF.out <- data.frame(dat.sampF$personID, dat.sampF$gender, dat.sampF$y.e, resid(fitF.yAlin), expectationF, dat.sampF$mi, dat.sampF$h)
   datF.sort <- datF.out[order(datF.out[,4],decreasing=T),1:7]
   datF.sort$rankF <- seq(1,length(dat.sampF$personID),1)
-  colnames(datF.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-quotient","h-index", "gender.rank")
+  colnames(datF.sort) <- c("person","gender","yrs.publ", "eindex","expectation","m-quotient","h-index", "gender.rank")
   datF.sort$person <- as.character(datF.sort$person)
   datF.sort$gender <- as.character(datF.sort$gender)
   datF.sort$expectation <- as.character(datF.sort$expectation)
@@ -160,7 +160,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   datM.out <- data.frame(dat.sampM$personID, dat.sampM$gender, dat.sampM$y.e, resid(fitM.yAlin), expectationM, dat.sampM$mi, dat.sampM$h)
   datM.sort <- datM.out[order(datM.out[,4],decreasing=T),1:7]
   datM.sort$rankF <- seq(1,length(dat.sampM$personID),1)
-  colnames(datM.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-quotient","h-index", "gender.rank")
+  colnames(datM.sort) <- c("person","gender","yrs.publ", "eindex","expectation","m-quotient","h-index", "gender.rank")
   datM.sort$person <- as.character(datM.sort$person)
   datM.sort$gender <- as.character(datM.sort$gender)
   datM.sort$expectation <- as.character(datM.sort$expectation)
@@ -170,12 +170,12 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   datFM <- rbind(datF.sort,datM.sort)
   datFM.sort <- datFM[order(datFM[,4],decreasing=T),1:8]
   datFM.sort$rnk.debiased <- seq(1,length(datFM.sort$person),1)
-  colnames(datFM.sort)[4] <- "gender.ε-index"
+  colnames(datFM.sort)[4] <- "gender.eindex"
   
   # add rank from pooled sample
   orig.rank <- dat.sort[,c(1,4,8)]
   datFM.mrg <- merge(datFM.sort, orig.rank, by="person", all=F, no.dups=T)
-  colnames(datFM.mrg)[10] <- "pooled.ε-index"
+  colnames(datFM.mrg)[10] <- "pooled.eindex"
   colnames(datFM.mrg)[11] <- "pooled.rnk"
   full.out <- datFM.mrg[order(datFM.mrg[,9],decreasing=F), 1:11]
   full.out
@@ -187,8 +187,8 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   abline(origdebias.fit, lty=2, col="red")
   
   ## scale (normalise)
-  full.out$`ε′-index` <- scale(full.out$`pooled.ε-index`, scale=T, center=F)
-  full.out$`debiased.ε′-index` <- scale(full.out$`gender.ε-index`, scale=T, center=F)
+  full.out$e.prime.index <- scale(full.out$pooled.eindex, scale=T, center=F)
+  full.out$debiased.e.prime.index <- scale(full.out$gender.eindex, scale=T, center=F)
   
   # print final output
   return(full.out)
@@ -199,7 +199,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
 ## import data
 ## data should be in the following format:
 ## .csv file (comma-delimited)
-## COLUMN 1: 'personID' — any character identification of an individual researcher (can be a name)
+## COLUMN 1: 'personID' - any character identification of an individual researcher (can be a name)
 ## COLUMN 2: 'gender' - researcher's gender ("F" or "M")
 ## COLUMN 3: 'i10' - researcher's i10 index (# papers with ≥ 10 citations); must be > 0
 ## COLUMN 4: 'h' - researcher's h-index
