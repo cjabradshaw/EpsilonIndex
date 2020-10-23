@@ -1,4 +1,4 @@
-# epsilon index
+# ε-index
 
 R function to assess the ε-index of a researcher's relative citation performance
 
@@ -8,7 +8,7 @@ Existing citation-based indices used to rank research performance do not permit 
 
 Code accompanies the article:
 
-# BRADSHAW, CJA, JM CHALKER, SA CRABTREE, B EIJKELKAMP, JA LONG, JR SMITH, K TRINAJSTIC, V WEISBECKER. In review. A fairer way to compare researchers at any career stage and in any discipline using open-access citation data. In review.
+## BRADSHAW, CJA, JM CHALKER, SA CRABTREE, B EIJKELKAMP, JA LONG, JR SMITH, K TRINAJSTIC, V WEISBECKER. In review. A fairer way to compare researchers at any career stage and in any discipline using open-access citation data. In review.
 
 DIRECTIONS
 
