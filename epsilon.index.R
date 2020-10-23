@@ -113,7 +113,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   dat.out <- data.frame(dat.samp$personID, dat.samp$gender, dat.samp$y.e, resid(fit.yAlin), expectation, dat.samp$mi, dat.samp$h)
   dat.sort <- dat.out[order(dat.out[,4],decreasing=T),1:7]
   dat.sort$rank <- seq(1,length(dat.samp$personID),1)
-  colnames(dat.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-index","h-index", "rank")
+  colnames(dat.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-quotient","h-index", "rank")
   dat.sort$person <- as.character(dat.sort$person)
   dat.sort$gender <- as.character(dat.sort$gender)
   dat.sort$expectation <- as.character(dat.sort$expectation)
@@ -137,7 +137,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   datF.out <- data.frame(dat.sampF$personID, dat.sampF$gender, dat.sampF$y.e, resid(fitF.yAlin), expectationF, dat.sampF$mi, dat.sampF$h)
   datF.sort <- datF.out[order(datF.out[,4],decreasing=T),1:7]
   datF.sort$rankF <- seq(1,length(dat.sampF$personID),1)
-  colnames(datF.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-index","h-index", "gender.rank")
+  colnames(datF.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-quotient","h-index", "gender.rank")
   datF.sort$person <- as.character(datF.sort$person)
   datF.sort$gender <- as.character(datF.sort$gender)
   datF.sort$expectation <- as.character(datF.sort$expectation)
@@ -160,7 +160,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   datM.out <- data.frame(dat.sampM$personID, dat.sampM$gender, dat.sampM$y.e, resid(fitM.yAlin), expectationM, dat.sampM$mi, dat.sampM$h)
   datM.sort <- datM.out[order(datM.out[,4],decreasing=T),1:7]
   datM.sort$rankF <- seq(1,length(dat.sampM$personID),1)
-  colnames(datM.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-index","h-index", "gender.rank")
+  colnames(datM.sort) <- c("person","gender","yrs.publ", "ε-index","expectation","m-quotient","h-index", "gender.rank")
   datM.sort$person <- as.character(datM.sort$person)
   datM.sort$gender <- as.character(datM.sort$gender)
   datM.sort$expectation <- as.character(datM.sort$expectation)
@@ -210,4 +210,3 @@ example.dat <- read.csv("datasample.csv", header=T) # .csv file of data for rese
 
 ## apply function
 epsilon.index.func(dat.samp=example.dat)
-
