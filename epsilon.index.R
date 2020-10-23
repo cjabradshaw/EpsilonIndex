@@ -210,3 +210,18 @@ example.dat <- read.csv("datasample.csv", header=T) # .csv file of data for rese
 
 ## apply function
 epsilon.index.func(dat.samp=example.dat)
+
+# The output file includes the following columns:
+# person: researcher's ID (specified by user)
+# gender: F=female; M=male
+# yrs.publ: number of years since first peer-reviewed article
+# gender.eindex: ε-index relative to others of the same gender in the sample
+# expectation: whether above or below expectation relative to others of the same gender
+# m-quotient: h-index ÷ yrs.publ
+# h-index: h-index
+# gender.rank: rank from gender.ε-index (1 = highest)
+# rnk.debiased: gender-debiased rank (1 = highest)
+# pooled.eindex: ε-index generated from the entire sample (not gender-specific)
+# pooled.rnk: rank from pooled.ε-index (1 = highest)
+# e.prime.index: scaled ε-index (ε′-index)
+# debiased.e.prime.index: scaled gender.ε-index (gender ε′-index)
