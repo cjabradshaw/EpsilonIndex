@@ -16,7 +16,7 @@ Code accompanies the article:
 -- <br>
 <strong>DIRECTIONS</strong>
 
-1. Create a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file of exactly the same format as the example file in this repository ('<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/datasample.csv">datasample.csv</a>'):
+1. Create a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file of <u>exactly the same format</u> as the example file in this repository ('<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/datasample.csv">datasample.csv</a>'):
 
  - <strong>COLUMN 1</strong>: <i>personID</i> — any character identification of an individual researcher (can be a name)
  - <strong>COLUMN 2</strong>: <i>gender</i> - researcher's gender ("F" or "M")
