@@ -35,7 +35,7 @@ Then, simply run the function as follows:
 
     epsilon.index.func(dat.samp=example.dat)
 
-The output file includes the following columns:
+The output includes the following columns:
 
 - <i>person</i>: researcher's ID (specified by user)
 - <i>gender</i>: F=female; M=male
@@ -50,3 +50,9 @@ The output file includes the following columns:
 - <i>pooled.rnk</i>: rank from pooled.eindex (1 = highest)
 - <i>e.prime.index</i>: scaled pooled.eindex (<i>ε</i>′-index)
 - <i>debiased.e.prime.index</i>: scaled gender.eindex (gender <i>ε</i>′-index)
+
+You can easily export the output to a file like this:
+    out <- epsilon.index.func(dat.samp=example.dat)
+    write.table(out,file="rank.output.csv",sep=",",dec = ".", row.names = F,col.names = TRUE)
+
+
