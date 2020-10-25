@@ -28,7 +28,11 @@ Code accompanies the article:
 2. Import the sample .csv file (or your own following the format indicated above):
 
         example.dat <- read.csv("datasample.csv", header=T) 
-
+  
+  Make sure to specify the directory in which 'datasample.csv' resides using the command:
+  
+        setwd() 
+ 
 3. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
 
 4. Simply run the function as follows:
