@@ -16,7 +16,7 @@ Code accompanies the article:
 -- <br>
 <strong>DIRECTIONS</strong>
 
-Load the function ('epsilon.index.func') in R, and import a data.frame from a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file exactly the same format as the example file in this repository ('<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/datasample.csv">datasample.csv</a>'):
+1. Create a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file of exactly the same format as the example file in this repository ('<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/datasample.csv">datasample.csv</a>'):
 
 - <strong>COLUMN 1</strong>: <i>personID</i> — any character identification of an individual researcher (can be a name)
 - <strong>COLUMN 2</strong>: <i>gender</i> - researcher's gender ("F" or "M")
@@ -25,13 +25,13 @@ Load the function ('epsilon.index.func') in R, and import a data.frame from a <a
 - <strong>COLUMN 5</strong>: <i>maxcit</i> - number of citations of researcher's most cited peer-reviewed paper
 - <strong>COLUMN 6</strong>: <i>firstyrpub</i> - the year of the researcher's first published peer-reviewed paper
 
-First, import the sample .csv file (or your own following the format indicated above):
+2. Import the sample .csv file (or your own following the format indicated above):
 
     example.dat <- read.csv("datasample.csv", header=T) 
 
-Now, load the function by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
+3. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
 
-Then, simply run the function as follows:
+4. Simply run the function as follows:
 
     epsilon.index.func(dat.samp=example.dat)
 
@@ -51,7 +51,7 @@ The output includes the following columns:
 - <i>e.prime.index</i>: scaled pooled.eindex (<i>ε</i>′-index)
 - <i>debiased.e.prime.index</i>: scaled gender.eindex (gender <i>ε</i>′-index)
 
-You can easily export the output to a file like this:
+5. You can easily export the output to a file like this:
 
     out <- epsilon.index.func(dat.samp=example.dat)
     write.table(out,file="rank.output.csv",sep=",",dec = ".", row.names = F,col.names = TRUE)
