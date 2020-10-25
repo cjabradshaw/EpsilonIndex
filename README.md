@@ -10,7 +10,7 @@ Code accompanies the article:
 
 <strong>BRADSHAW, CJA, JM CHALKER, SA CRABTREE, BA EIJKELKAMP, JA LONG, JR SMITH, K TRINAJSTIC, V WEISBECKER. In review. A fairer way to compare researchers at any career stage and in any discipline using open-access citation data. In review.</strong>
 
---
+-- <br>
 <strong>DIRECTIONS</strong>
 
 Load the function ('epsilon.index.func') in R, and import a data.frame from a .csv file exactly the same format as the example file attached ('datasample.csv'):
