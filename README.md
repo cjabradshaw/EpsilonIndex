@@ -1,9 +1,9 @@
 # <i>ε</i>-index
 
-R function to assess the <i>ε</i>-index of a researcher's relative citation performance
+<a href="https://cran.r-project.org" target="_blank">R</a> function to assess the <i>ε</i>-index of a researcher's relative citation performance
 
 Prof Corey J. A. Bradshaw <br>
-<a href="http://globalecologyflinders.com">Global Ecology</a>, Flinders University, Adelaide, Australia <br>
+<a href="http://globalecologyflinders.com" target="_blank">Global Ecology</a>, <a href="http://flinders.edu.au" target="_blank">Flinders University</a>, Adelaide, Australia <br>
 October 2020 <br>
 <a href=mailto:corey.bradshaw@flinders.edu.au>e-mail</a> <br>
 
@@ -11,7 +11,7 @@ Existing citation-based indices used to rank research performance do not permit 
 
 Code accompanies the article:
 
-<strong>BRADSHAW, CJA, JM CHALKER, SA CRABTREE, BA EIJKELKAMP, JA LONG, JR SMITH, K TRINAJSTIC, V WEISBECKER. In review. A fairer way to compare researchers at any career stage and in any discipline using open-access citation data. In review.</strong>
+<strong><a href="https://globalecologyflinders.com/people/#CJAB" target="_blank">BRADSHAW, CJA</a>, <a href="https://www.chalkerlab.com/jmc" target="_blank">JM CHALKER</a>, <a href="https://stefanicrabtree.com/about-stefani/" target="_blank">SA CRABTREE</a>, <a href="https://researchnow.flinders.edu.au/en/persons/bart-eijkelkamp" target="_blank">BA EIJKELKAMP</a>, <a href="https://en.wikipedia.org/wiki/John_A._Long" target="_blank">JA LONG</a>, <a href="https://www.flinders.edu.au/people/justine.smith" target="_blank">JR SMITH</a>, <a href="https://staffportal.curtin.edu.au/staff/profile/view/K.Trinajstic/" target="_blank">K TRINAJSTIC</a>, <a href="https://researchnow.flinders.edu.au/en/persons/vera-weisbecker" target="_blank">V WEISBECKER</a>. In review. A fairer way to compare researchers at any career stage and in any discipline using open-access citation data. In review.</strong>
 
 -- <br>
 <strong>DIRECTIONS</strong>
