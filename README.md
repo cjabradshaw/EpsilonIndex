@@ -27,7 +27,7 @@ Code accompanies the article:
 
 2. Import the sample .csv file, or your own following the format indicated above (make sure first to specify the directory in which 'datasample.csv' resides using the 'setwd()' command):
   
-        setwd() 
+        setwd("/path") 
         
         example.dat <- read.csv("datasample.csv", header=T) 
   
