@@ -27,16 +27,16 @@ Simply run the function as follows:
 
 The output file includes the following columns:
 
-- person: researcher's ID (specified by user)
-- gender: F=female; M=male
-- yrs.publ: number of years since first peer-reviewed article
-- gender.eindex: ε-index relative to others of the same gender in the sample
-- expectation: whether above or below expectation relative to others of the same gender
-- m-quotient: h-index ÷ yrs.publ
-- h-index: h-index
-- gender.rank: rank from gender.ε-index (1 = highest)
-- rnk.debiased: gender-debiased rank (1 = highest)
-- pooled.eindex: ε-index generated from the entire sample (not gender-specific)
-- pooled.rnk: rank from pooled.ε-index (1 = highest)
-- e.prime.index: scaled ε-index (ε′-index)
-- debiased.e.prime.index: scaled gender.ε-index (gender ε′-index)
+- <i>person</i>: researcher's ID (specified by user)
+- <i>gender</i>: F=female; M=male
+- <i>yrs.publ</i>: number of years since first peer-reviewed article
+- <i>gender.eindex</i>: ε-index relative to others of the same gender in the sample
+- <i>expectation</i>: whether above or below expectation relative to others of the same gender
+- <i>m-quotient</i>: h-index ÷ yrs.publ
+- <i>h-index</i>: h-index
+- <i>gender.rank</i>: rank from gender.eindex (1 = highest)
+- <i>rnk.debiased</i>: gender-debiased rank (1 = highest)
+- <i>pooled.eindex</i>: <i>ε</i>-index generated from the entire sample (not gender-specific)
+- <i>pooled.rnk</i>: rank from pooled.eindex (1 = highest)
+- <i>e.prime.index</i>: scaled pooled.eindex (<i>ε</i>′-index)
+- <i>debiased.e.prime.index</i>: scaled gender.eindex (gender <i>ε</i>′-index)
