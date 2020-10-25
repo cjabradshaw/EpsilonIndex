@@ -29,7 +29,9 @@ First, import the sample .csv file (or your own following the format indicated a
 
     example.dat <- read.csv("datasample.csv", header=T) 
 
-Then simply run the function as follows:
+Now, load the function by submitting the entire function code (lines 12 to 196) to the R console.
+
+Then, simply run the function as follows:
 
     epsilon.index.func(dat.samp=example.dat)
 
