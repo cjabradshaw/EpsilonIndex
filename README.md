@@ -52,6 +52,7 @@ The output includes the following columns:
 - <i>debiased.e.prime.index</i>: scaled gender.eindex (gender <i>ε</i>′-index)
 
 You can easily export the output to a file like this:
+
     out <- epsilon.index.func(dat.samp=example.dat)
     write.table(out,file="rank.output.csv",sep=",",dec = ".", row.names = F,col.names = TRUE)
 
