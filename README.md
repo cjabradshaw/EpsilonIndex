@@ -29,7 +29,7 @@ First, import the sample .csv file (or your own following the format indicated a
 
     example.dat <- read.csv("datasample.csv", header=T) 
 
-Now, load the function by submitting the entire function code (lines 12 to 196) to the R console.
+Now, load the function by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
 
 Then, simply run the function as follows:
 
