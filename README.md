@@ -25,14 +25,12 @@ Code accompanies the article:
  - <strong>COLUMN 5</strong>: <i>maxcit</i> — number of citations of researcher's most cited peer-reviewed paper
  - <strong>COLUMN 6</strong>: <i>firstyrpub</i> — the year of the researcher's first published peer-reviewed paper
 
-2. Import the sample .csv file (or your own following the format indicated above):
-
-        example.dat <- read.csv("datasample.csv", header=T) 
-  
-  Make sure to specify the directory in which 'datasample.csv' resides using the command:
+2. Import the sample .csv file, or your own following the format indicated above (make sure first to specify the directory in which 'datasample.csv' resides using the 'setwd()' command):
   
         setwd() 
- 
+        
+        example.dat <- read.csv("datasample.csv", header=T) 
+  
 3. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
 
 4. Simply run the function as follows:
