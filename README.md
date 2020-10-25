@@ -16,7 +16,7 @@ Code accompanies the article:
 -- <br>
 <strong>DIRECTIONS</strong>
 
-Load the function ('epsilon.index.func') in R, and import a data.frame from a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file exactly the same format as the example file in this repository ('datasample.csv'):
+Load the function ('epsilon.index.func') in R, and import a data.frame from a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file exactly the same format as the example file in this repository ('<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/datasample.csv">datasample.csv</a>'):
 
 - <strong>COLUMN 1</strong>: <i>personID</i> — any character identification of an individual researcher (can be a name)
 - <strong>COLUMN 2</strong>: <i>gender</i> - researcher's gender ("F" or "M")
