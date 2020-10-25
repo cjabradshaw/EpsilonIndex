@@ -193,7 +193,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   # print final output
   return(full.out)
 
-} # end epsilon.index function
+} # end epsilon.index.func
 
 
 ## import data
