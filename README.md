@@ -16,11 +16,11 @@ Code accompanies the article:
 -- <br>
 <strong>DIRECTIONS</strong>
 
-1. Create a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file of <u>exactly the same format</u> as the example file in this repository ('<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/datasample.csv">datasample.csv</a>'):
+1. Create a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file of <strong>exactly the same format</strong> as the example file in this repository ('<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/datasample.csv">datasample.csv</a>'):
 
  - <strong>COLUMN 1</strong>: <i>personID</i> — any character identification of an individual researcher (can be a name)
  - <strong>COLUMN 2</strong>: <i>gender</i> - researcher's gender ("F" or "M")
- - <strong>COLUMN 3</strong>: <i>i10</i> - researcher's i10 index (# papers with ≥ 10 citations); must be > 0
+ - <strong>COLUMN 3</strong>: <i>i10</i> - researcher's i10 index (# papers with ≥ 10 citations); <strong>must be > 0</strong>
  - <strong>COLUMN 4</strong>: <i>h</i> - researcher's <i>h</i>-index
  - <strong>COLUMN 5</strong>: <i>maxcit</i> - number of citations of researcher's most cited peer-reviewed paper
  - <strong>COLUMN 6</strong>: <i>firstyrpub</i> - the year of the researcher's first published peer-reviewed paper
