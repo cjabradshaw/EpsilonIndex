@@ -16,7 +16,7 @@ Code accompanies the article:
 -- <br>
 <strong>DIRECTIONS</strong>
 
-Load the function ('epsilon.index.func') in R, and import a data.frame from a .csv file exactly the same format as the example file attached ('datasample.csv'):
+Load the function ('epsilon.index.func') in R, and import a data.frame from a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">.csv</a> file exactly the same format as the example file in this repository ('datasample.csv'):
 
 - <strong>COLUMN 1</strong>: <i>personID</i> — any character identification of an individual researcher (can be a name)
 - <strong>COLUMN 2</strong>: <i>gender</i> - researcher's gender ("F" or "M")
@@ -25,7 +25,11 @@ Load the function ('epsilon.index.func') in R, and import a data.frame from a .c
 - <strong>COLUMN 5</strong>: <i>maxcit</i> - number of citations of researcher's most cited peer-reviewed paper
 - <strong>COLUMN 6</strong>: <i>firstyrpub</i> - the year of the researcher's first published peer-reviewed paper
 
-Simply run the function as follows:
+First, import the sample .csv file (or your own following the format indicated above):
+
+    example.dat <- read.csv("datasample.csv", header=T) 
+
+The simply run the function as follows:
 
     epsilon.index.func(dat.samp=example.dat)
 
