@@ -1,6 +1,6 @@
 # <i>ε</i>-index
 
-<a target="_blank" href="https://cran.r-project.org">R</a> function to assess the <i>ε</i>-index of a researcher's relative citation performance
+<a target="_blank" href="https://cran.r-project.org">R</a> function to calculate the <i>ε</i>-index of a researcher's relative citation performance
 
 Prof Corey J. A. Bradshaw <br>
 <a href="http://globalecologyflinders.com" target="_blank">Global Ecology</a>, <a href="http://flinders.edu.au" target="_blank">Flinders University</a>, Adelaide, Australia <br>
