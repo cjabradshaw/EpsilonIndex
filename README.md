@@ -27,13 +27,13 @@ Code accompanies the article:
 
 2. Import the sample .csv file (or your own following the format indicated above):
 
-    example.dat <- read.csv("datasample.csv", header=T) 
+        example.dat <- read.csv("datasample.csv", header=T) 
 
 3. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
 
 4. Simply run the function as follows:
 
-    epsilon.index.func(dat.samp=example.dat)
+        epsilon.index.func(dat.samp=example.dat)
 
 The output includes the following columns:
 
@@ -53,7 +53,7 @@ The output includes the following columns:
 
 5. You can easily export the output to a file like this:
 
-    out <- epsilon.index.func(dat.samp=example.dat)
-    write.table(out,file="rank.output.csv",sep=",",dec = ".", row.names = F,col.names = TRUE)
+        out <- epsilon.index.func(dat.samp=example.dat)
+        write.table(out,file="rank.output.csv",sep=",",dec = ".", row.names = F,col.names = TRUE)
 
 
