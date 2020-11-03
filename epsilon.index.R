@@ -9,7 +9,15 @@
 ## October 2020                   ##
 ####################################
 
-epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame loaded from a .csv file (format specified after function)
+# 'dat.samp' is the sample data.frame loaded from a .csv file (format specified after function)
+# 'sort.out' is an sorting option for the final results table based on desired index (default = 'e')
+    # possible values: 'e' = pooled; 'ep' = normalised; 'd' = gender-debiased; 'dp' = normalised gender-debiased
+    # If there are insufficient individuals/gender to estimate a gender-specific index, we recommmend not using
+    # or sorting based on the gender-debiased index (option 'd')
+    # If the individuals in the sample are not all in the same approximate discipline, we recommend not using
+    # or sorting based on either of the two normalised indices (options 'ep' or 'dp')
+
+epsilon.index.func <- function(dat.samp, sort.out) { 
 
   ## set internal functions
   AICc <- function(...) {
@@ -54,7 +62,6 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   dat.samp$lih <- log(dat.samp$h)
   dat.samp$limax <- log(dat.samp$maxcit)
   dat.samp$mi <- dat.samp$h/dat.samp$y.e
-  dat.samp
   
   ## power-law relationship
   plot(as.numeric(dat.samp[1,12:14]), as.numeric(dat.samp[1,9:11]), lty=2, xlim=c(1,max(dat.samp$limax)), ylim=c(0,max(dat.samp$lc10)), col="white", xlab="log index", ylab="log frequency")
@@ -141,7 +148,6 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   datF.sort$person <- as.character(datF.sort$person)
   datF.sort$gender <- as.character(datF.sort$gender)
   datF.sort$expectation <- as.character(datF.sort$expectation)
-  datF.sort
   
   # men
   dat.sampM <- subset(dat.samp, gender=="M")
@@ -164,7 +170,6 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   datM.sort$person <- as.character(datM.sort$person)
   datM.sort$gender <- as.character(datM.sort$gender)
   datM.sort$expectation <- as.character(datM.sort$expectation)
-  datM.sort
   
   # combine women & men subsets & re-rank
   datFM <- rbind(datF.sort,datM.sort)
@@ -177,8 +182,7 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   datFM.mrg <- merge(datFM.sort, orig.rank, by="person", all=F, no.dups=T)
   colnames(datFM.mrg)[10] <- "pooled.eindex"
   colnames(datFM.mrg)[11] <- "pooled.rnk"
-  full.out <- datFM.mrg[order(datFM.mrg[,9],decreasing=F), 1:11]
-  full.out
+  full.out <- datFM.mrg[order(datFM.mrg[,9],decreasing=F), 1:11]  
   
   plot(full.out$pooled.rnk, full.out$rnk.debiased, xlab="pooled rank", ylab="debiased rank", pch=NULL, cex=0.7, col="white")
   origdebias.fit <- lm(full.out$rnk.debiased~full.out$pooled.rnk)
@@ -190,8 +194,24 @@ epsilon.index.func <- function(dat.samp) { # 'dat.samp' is the sample data.frame
   full.out$e.prime.index <- scale(full.out$pooled.eindex, scale=T, center=F)
   full.out$debiased.e.prime.index <- scale(full.out$gender.eindex, scale=T, center=F)
   
+  # sort on desired metric & recalculate expectation based on sort metric
+  # 'e' = pooled; 'ep' = normalised; 'd' = gender-debiased; 'dp' = normalised gender-debiased 
+  if(is.null(sort.index))
+     sort.index <- 'e'} # default sort.index = 'e'
+  if (sort.index == 'd') {
+    sort.out <- full.out[order(full.out[,9],decreasing=F), 1:13]}
+  if (sort.index == 'e') {
+    sort.out <- full.out[order(full.out[,10],decreasing=T), 1:13]
+    sort.out$expectation <- ifelse(full.out[,10] > 0, 'above', 'below')}
+  if (sort.index == 'ep') {
+    sort.out <- full.out[order(full.out[,12],decreasing=T), 1:13]
+    sort.out$expectation <- ifelse(full.out[,12] > 0, 'above', 'below')}
+  if (sort.index == 'dp') {
+    sort.out <- full.out[order(full.out[,13],decreasing=T), 1:13]
+    sort.out$expectation <- ifelse(full.out[,13] > 0, 'above', 'below')}
+  
   # print final output
-  return(full.out)
+  return(sort.out)
 
 } # end epsilon.index.func
 
