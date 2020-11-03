@@ -32,13 +32,23 @@ Code accompanies the article:
 
 3. Alternatively, you can automatically harvest the necessary citation data from Google Scholar using the 'get.profile.func.R' function, which produces a file that can be called directly by the 'epsilon.index.func.R':
 
- i. first predefine a Google Scholar ids vector (12-character user ID from scholar.google.com), e.g.,
+  i. Predefine a Google Scholar ids vector (12-character user ID from scholar.google.com), e.g.,
  
-    ids <- c("1sO0O3wAAAAJ","ZBUju2QAAAAJ","oGAui-IAAAAJ","cpJnEYIAAAAJ","ptDEg44AAAAJ","PJYrOvQAAAAJ","4UxbBYIAAAAJ") 
-        
-3. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
+        ids <- c("1sO0O3wAAAAJ","ZBUju2QAAAAJ","oGAui-IAAAAJ","cpJnEYIAAAAJ","ptDEg44AAAAJ","PJYrOvQAAAAJ","4UxbBYIAAAAJ") 
 
-4. Simply run the function as follows:
+  ii. Then define a 'genders' vector of the same length, e.g.,
+  
+        genders <- c("M","M","F","M","M","F","F") # character vector of researcher gender
+
+  iii. Load get.profile.func
+  
+  iv. Define an input file that the epsilon.index.func will use, e.g.,
+
+        example.dat <- get.profiledat.func(ids, genders)
+
+4. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
+
+5. Simply run the function as follows:
 
         epsilon.index.func(dat.samp=example.dat)
 
