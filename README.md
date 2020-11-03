@@ -36,13 +36,13 @@ Code accompanies the article:
 
          ids <- c("1sO0O3wAAAAJ","ZBUju2QAAAAJ","oGAui-IAAAAJ","cpJnEYIAAAAJ","ptDEg44AAAAJ","PJYrOvQAAAAJ","4UxbBYIAAAAJ") 
 
-    ii. Then define a 'genders' vector of the same length, e.g.,
+    <i>ii</i>. Then define a 'genders' vector of the same length, e.g.,
 
-         genders <- c("M","M","F","M","M","F","F") # character vector of researcher gender
+         genders <- c("M","M","F","M","M","F","F")
 
-    iii. Load get.profile.func
+    <i>iii</i>. Load get.profile.func
 
-    iv. Define an input file that the epsilon.index.func will use, e.g.,
+    <i>iv</i>. Define an input file that the epsilon.index.func will use, e.g.,
 
          example.dat <- get.profiledat.func(ids, genders)
 
