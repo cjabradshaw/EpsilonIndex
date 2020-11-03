@@ -9,6 +9,9 @@
 ## November 2020                  ##
 ####################################
 
+install.packages("scholar")
+library(scholar)
+
 ## To run, first predefine a Google Scholar ids vector (12-character user ID from scholar.google.com):
 ## e.g., ids <- c("1sO0O3wAAAAJ","ZBUju2QAAAAJ","oGAui-IAAAAJ","cpJnEYIAAAAJ","ptDEg44AAAAJ","PJYrOvQAAAAJ","4UxbBYIAAAAJ")
 ## and a genders vector of the same length:
