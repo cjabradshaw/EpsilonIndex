@@ -17,7 +17,7 @@
     # If the individuals in the sample are not all in the same approximate discipline, we recommend not using
     # or sorting based on either of the two normalised indices (options 'ep' or 'dp')
 
-epsilon.index.func <- function(dat.samp, sort.out) { 
+epsilon.index.func <- function(dat.samp, sort.index) { 
 
   ## set internal functions
   AICc <- function(...) {
