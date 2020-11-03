@@ -46,7 +46,7 @@ Code accompanies the article:
 
          example.dat <- get.profiledat.func(ids, genders)
 
-      Note: The estimation of the first year of publication (<i>Y</i><sub>1</sub>) can return errors because the function does not differentiate peer-reviewed and non-peer-reviewed entries in Google Scholar. We recommend that 
+      Note: The estimation of the first year of publication (<i>Y</i><sub>1</sub>) can return errors because the function does not differentiate peer-reviewed and non-peer-reviewed entries in Google Scholar. We recommend that all harvested values for the year of first publication be checked manually for each researcher in the sample.
 
 4. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 12 to 196</a>) to the R console.
 
