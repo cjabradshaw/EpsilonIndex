@@ -196,7 +196,7 @@ epsilon.index.func <- function(dat.samp, sort.out) {
   
   # sort on desired metric & recalculate expectation based on sort metric
   # 'e' = pooled; 'ep' = normalised; 'd' = gender-debiased; 'dp' = normalised gender-debiased 
-  if(is.null(sort.index))
+  if(is.null(sort.index)) {
      sort.index <- 'e'} # default sort.index = 'e'
   if (sort.index == 'd') {
     sort.out <- full.out[order(full.out[,9],decreasing=F), 1:13]}
