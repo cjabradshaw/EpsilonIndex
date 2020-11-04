@@ -10,9 +10,9 @@
 ####################################
 
 # 'dat.samp' is the sample data.frame loaded from a .csv file (format specified after function)
-# 'sort.out' is an sorting option for the final results table based on desired index (default = 'e')
+# 'sort.out' is a sorting option for the final results table based on desired index (default = 'e')
     # possible values: 'e' = pooled; 'ep' = normalised; 'd' = gender-debiased; 'dp' = normalised gender-debiased
-    # If there are insufficient individuals/gender to estimate a gender-specific index, we recommmend not using
+    # If there are insufficient individuals per gender to estimate a gender-specific index, we recommmend not using
     # or sorting based on the gender-debiased index (option 'd')
     # If the individuals in the sample are not all in the same approximate discipline, we recommend not using
     # or sorting based on either of the two normalised indices (options 'ep' or 'dp')
