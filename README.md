@@ -32,7 +32,7 @@ Code accompanies the article:
 
 3. Alternatively, you can automatically harvest the necessary citation data from Google Scholar using the 'get.profile.func.R' function, which produces a file that can be called directly by the 'epsilon.index.func.R':
 
-    <i>i</i>. Predefine a Google Scholar ids vector (12-character user ID from scholar.google.com), e.g.,
+    <i>i</i>. Predefine a Google Scholar ids vector (12-character user ID from <a href="https://scholar.google.com.au/citations?hl=en&user=1sO0O3wAAAAJ">scholar.google.com</a>), e.g.,
 
          ids <- c("1sO0O3wAAAAJ","ZBUju2QAAAAJ","oGAui-IAAAAJ","cpJnEYIAAAAJ","ptDEg44AAAAJ","PJYrOvQAAAAJ","4UxbBYIAAAAJ") 
 
