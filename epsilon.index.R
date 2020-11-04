@@ -17,7 +17,7 @@
     # If the individuals in the sample are not all in the same approximate discipline, we recommend not using
     # or sorting based on either of the two normalised indices (options 'ep' or 'dp')
 
-epsilon.index.func <- function(dat.samp, sort.index) { 
+epsilon.index.func <- function(dat.samp, sort.index='e') { 
 
   ## set internal functions
   AICc <- function(...) {
@@ -196,8 +196,6 @@ epsilon.index.func <- function(dat.samp, sort.index) {
   
   # sort on desired metric & recalculate expectation based on sort metric
   # 'e' = pooled; 'ep' = normalised; 'd' = gender-debiased; 'dp' = normalised gender-debiased 
-  if(is.null(sort.index)) {
-     sort.index <- 'e'} # default sort.index = 'e'
   if (sort.index == 'd') {
     sort.out <- full.out[order(full.out[,9],decreasing=F), 1:13]}
   if (sort.index == 'e') {
