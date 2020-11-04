@@ -48,7 +48,7 @@ Code accompanies the article:
 
       <strong>Note</strong>: The estimation of the first year of publication (<i>Y</i><sub>1</sub>) can return errors because the function does not differentiate peer-reviewed and non-peer-reviewed entries in Google Scholar, nor can it avoid clearly erroneous entries in a researcher's publication history. We recommend that all harvested values for the year of first publication be checked manually for each researcher in the sample. A case in point is id=ptDEg44AAAAJ that returns <i>Y</i><sub>1</sub> = 1791, but the true year of first publication for this researcher is 1982. 
 
-4. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 20 to 210</a>) to the R console.
+4. Load the function ('epsilon.index.func') in R by submitting the entire function code (<a href="https://github.com/cjabradshaw/EpsilonIndex/blob/main/epsilon.index.R">lines 20 to 212</a>) to the R console.
 
 5. Simply run the function as follows:
 
@@ -76,7 +76,17 @@ The output includes the following columns:
 - <i>e.prime.index</i>: scaled pooled.eindex (<i>ε</i>′-index)
 - <i>debiased.e.prime.index</i>: scaled gender.eindex (gender <i>ε</i>′-index)
 
-5. You can easily export the output to a file like this:
+and
+
+if sort.index = 'ep':
+
+- <i>eprime.rnk</i>: rank from scaled pooled.eindex (<i>ε</i>′-index)
+
+or if sort.index = 'dp':
+
+- <i>eprime.debiased.rnk</i>: rank from scaled gender.eindex (gender <i>ε</i>′-index)
+
+6. You can easily export the output to a file like this:
 
         out <- epsilon.index.func(dat.samp=example.dat, sort.index=c('e', 'd', 'ep', 'dp'))
         write.table(out,file="rank.output.csv",sep=",",dec = ".", row.names = F,col.names = TRUE)
