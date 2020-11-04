@@ -19,6 +19,8 @@
 
 epsilon.index.func <- function(dat.samp, sort.index='e') { 
   
+  if(length(sort.index)>1) stop("you can only enter 1 value for the sort.index option: either 'e', 'ep', 'd', or 'dp'")
+
   ## set internal functions
   AICc <- function(...) {
     models <- list(...)
