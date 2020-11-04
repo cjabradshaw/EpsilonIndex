@@ -66,7 +66,7 @@ The output includes the following columns:
 - <i>gender</i>: F=female; M=male
 - <i>yrs.publ</i>: number of years since first peer-reviewed article
 - <i>gender.eindex</i>: <i>ε</i>-index relative to others of the same gender in the sample
-- <i>expectation</i>: whether above or below expectation relative to others of the same gender
+- <i>expectation</i>: whether above or below expectation based on chosen index (default is 'e' = pooled index)
 - <i>m-quotient</i>: <i>h</i>-index ÷ yrs.publ
 - <i>h-index</i>: <i>h</i>-index
 - <i>gender.rank</i>: rank from gender.eindex (1 = highest)
