@@ -18,7 +18,7 @@
     # or sorting based on either of the two normalised indices (options 'ep' or 'dp')
 
 epsilon.index.func <- function(dat.samp, sort.index='e') { 
-
+  
   ## set internal functions
   AICc <- function(...) {
     models <- list(...)
@@ -89,8 +89,7 @@ epsilon.index.func <- function(dat.samp, sort.index='e') {
     points(lis,lcs,pch=3,cex=0.5, col="black")
     abline(fitp, lty=2, col="grey")
   }
-  dat.samp
-  
+
   ## area under the curve
   dat.samp$Alin <- NA
   for (q in 1:dim(dat.samp)[1]) {
@@ -101,9 +100,7 @@ epsilon.index.func <- function(dat.samp, sort.index='e') {
     if (dat.samp$limax[q] < 1) {
       dat.samp$Alin[q] <- 0}
   }
-  dat.samp
-  
-  
+
   ## residual ranking
   plot(log(dat.samp$y.e), dat.samp$Alin, pch=19, xlab="log years since 1st publication", ylab="Arel", ylim=c(min((dat.samp$Alin)),max((dat.samp$Alin))), xlim=c(min(log(dat.samp$y.e)),max(log(dat.samp$y.e))))
   fit.yAlin <- lm(dat.samp$Alin ~ log(dat.samp$y.e))
@@ -124,8 +121,7 @@ epsilon.index.func <- function(dat.samp, sort.index='e') {
   dat.sort$person <- as.character(dat.sort$person)
   dat.sort$gender <- as.character(dat.sort$gender)
   dat.sort$expectation <- as.character(dat.sort$expectation)
-  dat.sort
-  
+
   ## gender-debiased ε-index 
   # women
   dat.sampF <- subset(dat.samp, gender=="F")
@@ -200,17 +196,17 @@ epsilon.index.func <- function(dat.samp, sort.index='e') {
     sort.out <- full.out[order(full.out[,9],decreasing=F), 1:13]}
   if (sort.index == 'e') {
     sort.out <- full.out[order(full.out[,10],decreasing=T), 1:13]
-    sort.out$expectation <- ifelse(full.out[,10] > 0, 'above', 'below')}
+    sort.out$expectation <- as.character(ifelse(sort.out[,10] > 0, 'above', 'below'))}
   if (sort.index == 'ep') {
     sort.out <- full.out[order(full.out[,12],decreasing=T), 1:13]
-    sort.out$expectation <- ifelse(full.out[,12] > 0, 'above', 'below')}
+    sort.out$expectation <- ifelse(sort.out[,12] > 0, 'above', 'below')}
   if (sort.index == 'dp') {
     sort.out <- full.out[order(full.out[,13],decreasing=T), 1:13]
-    sort.out$expectation <- ifelse(full.out[,13] > 0, 'above', 'below')}
+    sort.out$expectation <- ifelse(sort.out[,13] > 0, 'above', 'below')}
   
   # print final output
   return(sort.out)
-
+  
 } # end epsilon.index.func
 
 
