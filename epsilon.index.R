@@ -199,10 +199,12 @@ epsilon.index.func <- function(dat.samp, sort.index='e') {
     sort.out$expectation <- as.character(ifelse(sort.out[,10] > 0, 'above', 'below'))}
   if (sort.index == 'ep') {
     sort.out <- full.out[order(full.out[,12],decreasing=T), 1:13]
-    sort.out$expectation <- ifelse(sort.out[,12] > 0, 'above', 'below')}
+    sort.out$expectation <- ifelse(sort.out[,12] > 0, 'above', 'below')
+    sort.out$eprime.rnk <- seq(1,dim(sort.out)[1], by=1)}
   if (sort.index == 'dp') {
     sort.out <- full.out[order(full.out[,13],decreasing=T), 1:13]
-    sort.out$expectation <- ifelse(sort.out[,13] > 0, 'above', 'below')}
+    sort.out$expectation <- ifelse(sort.out[,13] > 0, 'above', 'below')
+    sort.out$eprime.debiased.rnk <- seq(1,dim(sort.out)[1], by=1)}
   
   # print final output
   return(sort.out)
