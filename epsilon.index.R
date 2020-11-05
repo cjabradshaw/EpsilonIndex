@@ -66,15 +66,15 @@ epsilon.index.func <- function(dat.samp, sort.index='e') {
   dat.samp$mi <- dat.samp$h/dat.samp$y.e
   
   ## power-law relationship
-  plot(as.numeric(dat.samp[1,12:14]), as.numeric(dat.samp[1,9:11]), lty=2, xlim=c(1,max(dat.samp$limax)), ylim=c(0,max(dat.samp$lc10)), col="white", xlab="log index", ylab="log frequency")
+  plot(as.numeric(dat.samp[1,11:13]), as.numeric(dat.samp[1,8:10]), lty=2, xlim=c(1,max(dat.samp$limax)), ylim=c(0,max(dat.samp$lc10)), col="white", xlab="log index", ylab="log frequency")
   
   lis.out <- lcs.out <- pers.out <- rep(NA,1)
   xypts.out <- matrix(NA,nrow=2, ncol=2)
   dat.samp$a <- dat.samp$b <- NA
   for (p in 1:dim(dat.samp)[1]) {
-    lis <- as.numeric(dat.samp[p, 12:14])
+    lis <- as.numeric(dat.samp[p, 11:13])
     lis.out <- c(lis.out, lis)
-    lcs <- as.numeric(dat.samp[p, 9:11])
+    lcs <- as.numeric(dat.samp[p, 8:10])
     lcs.out <- c(lcs.out, lcs)
     pers <- rep(dat.samp[p, 4],3)
     pers.out <- c(pers.out,pers)
