@@ -19,11 +19,11 @@ library(scholar)
 
 ## load function
 get.profiledat.func <- function(ids.vector, genders.vector) { # 'ids.vector' is the character vector of Google Scholar IDs, and 'genders.vector' is the character vector of researcher gender
-  profiles.list <- lapply(ids.vector, get_profile)
+  profileslist <- lapply(ids.vector, get_profile)
   hs <- i10s <- maxcits <- Y1s <- rep(NA,length(ids.vector))
   for (r in 1:length(ids.vector)) {
-    hs[r] <- profiles.list[[r]]$h_index
-    i10s[r] <- profiles.list[[r]]$i10_index
+    hs[r] <- profileslist[[r]]$h_index
+    i10s[r] <- profileslist[[r]]$i10_index
     maxcits[r] <- get_publications(as.character(profileslist[[r]]$id))$cites[1]
     Y1s[r] <- get_oldest_article(profileslist[[r]]$id)
   }
