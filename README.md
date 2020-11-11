@@ -52,13 +52,13 @@ Code accompanies the article:
 
 5. Simply run the function as follows:
 
-        epsilon.index.func(dat.samp=example.dat, sort.index=c('e', 'd', 'ep', 'dp'))
+        epsilonIndexFunc(dat.samp=example.dat, bygender=c('no','yes'), sort.index=c('e', 'd', 'ep', 'dp'))
 
-where 'sort.out' is a sorting option for the final results table based on desired index (default = 'e')
+where 'bygender' indicates whether you want to calculate the gender-debiased index, and 'sort.out' is a sorting option for the final results table based on desired index (default = 'e')
 
 <i>possible values</i>: 'e' = pooled; 'ep' = normalised; 'd' = gender-debiased; 'dp' = normalised gender-debiased
 
-If there are insufficient individuals per gender to estimate a gender-specific index, we recommmend not using or sorting based on the gender-debiased index (option 'd'). If the individuals in the sample are not all in the same approximate discipline, we recommend not using or sorting based on either of the two normalised indices (options 'ep' or 'dp').
+If there are insufficient individuals per gender to estimate a gender-specific index, we recommmend selecting bygender='no' and not using or sorting based on the gender-debiased index (option 'd'). If the individuals in the sample are not all in the same approximate discipline, we recommend not using or sorting based on either of the two normalised indices (options 'ep' or 'dp').
 
 The output includes the following columns:
 
@@ -69,12 +69,13 @@ The output includes the following columns:
 - <i>expectation</i>: whether above or below expectation based on chosen index (default is 'e' = pooled index)
 - <i>m-quotient</i>: <i>h</i>-index ÷ yrs.publ
 - <i>h-index</i>: <i>h</i>-index
+- <i>debiased.e.prime.index</i>: scaled gender.eindex (gender <i>ε</i>′-index)
 - <i>gender.rank</i>: rank from gender.eindex (1 = highest)
 - <i>rnk.debiased</i>: gender-debiased rank (1 = highest)
 - <i>pooled.eindex</i>: <i>ε</i>-index generated from the entire sample (not gender-specific)
-- <i>pooled.rnk</i>: rank from pooled.eindex (1 = highest)
 - <i>e.prime.index</i>: scaled pooled.eindex (<i>ε</i>′-index)
-- <i>debiased.e.prime.index</i>: scaled gender.eindex (gender <i>ε</i>′-index)
+- <i>pooled.rnk</i>: rank from pooled.eindex (1 = highest)
+
 
 and
 
