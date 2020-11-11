@@ -87,7 +87,7 @@ epsilonIndexFunc <- function(datsamp, bygender='no', sortindex='e') {
     }
     
     if (coef(fitF.yAlinP)[2] < 0)  {
-      fitF.yAlinP <- lm(fitF.yAlinP ~ 0 + log(datsampF[,7]))
+      fitF.yAlinP <- lm(scale(datsampF[,17], scale=T, center=F) ~ 0 + log(datsampF[,7]))
     }
   
     ## calculate expectation relative to sample
@@ -113,7 +113,7 @@ epsilonIndexFunc <- function(datsamp, bygender='no', sortindex='e') {
     }
     
     if (coef(fitM.yAlinP)[2] < 0)  {
-      fitM.yAlinP <- lm(fitM.yAlinP ~ 0 + log(datsampM[,7]))
+      fitM.yAlinP <- lm(scale(datsampM[,17], scale=T, center=F) ~ 0 + log(datsampM[,7]))
     }
     
     ## calculate expectation relative to sample
@@ -165,12 +165,12 @@ epsilonIndexFunc <- function(datsamp, bygender='no', sortindex='e') {
   } # end bygender = yes if statement
 
   if (bygender == "no") {
-    full.out1 <- dat.sort
-    full.out1[,4] <- round(full.out1[,4], 4)
-    full.out1[,5] <- round(as.numeric(full.out1[,5]), 4)
-    colnames(full.out1)[4] <- "poolE"
-    colnames(full.out1)[9] <- "poolRnk"
-    sortout <- data.frame(full.out1,eP)
+    full.out <- dat.sort
+    full.out[,4] <- round(full.out[,4], 4)
+    full.out[,5] <- round(as.numeric(full.out[,5]), 4)
+    colnames(full.out)[4] <- "poolE"
+    colnames(full.out)[9] <- "poolRnk"
+    sortout <- full.out
   } # end bygender = no if statement
   
   # print final output
