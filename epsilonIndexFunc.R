@@ -62,14 +62,14 @@ epsilonIndexFunc <- function(datsamp, bygender='no', sortindex='e') {
   
   ## calculate expectation relative to sample
   expectation <- as.character(ifelse(resid(fit.yAlin) > 0, "above", "below"))
-  dat.out <- data.frame(datsamp[,1], datsamp[,2], ye, resid(fit.yAlin), resid(fit.yAlinP), expectation, mi, datsamp[,4])
-  dat.sort1 <- dat.out[order(dat.out[,4],decreasing=T),1:8]
+  dat.out <- data.frame(datsamp[,1], datsamp[,2], ye, Alin, resid(fit.yAlin), resid(fit.yAlinP), expectation, mi, datsamp[,4])
+  dat.sort1 <- dat.out[order(dat.out[,5],decreasing=T),]
   Rnk <- seq(1,length(datsamp[,1]),1)
   dat.sort <- data.frame(dat.sort1,Rnk)
-  colnames(dat.sort) <- c("ID","gen","yrsP", "e","eP","exp","m","h","Rnk")
+  colnames(dat.sort) <- c("ID","gen","yrsP","cM","e","eP","exp","m","h","Rnk")
   dat.sort[,1] <- as.character(dat.sort[,1])
   dat.sort[,2] <- as.character(dat.sort[,2])
-  dat.sort[,5] <- as.character(dat.sort[,5])
+  dat.sort[,7] <- as.character(dat.sort[,7])
 
   if (bygender == "yes") {
     ## gender-debiased ε-index 
@@ -92,14 +92,14 @@ epsilonIndexFunc <- function(datsamp, bygender='no', sortindex='e') {
   
     ## calculate expectation relative to sample
     expectationF <- as.character(ifelse(resid(fitF.yAlin) > 0, "above", "below"))
-    datF.out <- data.frame(datsampF[,1], datsampF[,2], datsampF[,7], round(resid(fitF.yAlin),4), expectationF, datsampF[,14], datsampF[,4], round(resid(fitF.yAlinP),4))
-    datF.sort1 <- datF.out[order(datF.out[,4],decreasing=T),1:8]
+    datF.out <- data.frame(datsampF[,1], datsampF[,2], datsampF[,7], round(scale(datsampF[,17], scale=T, center=F),4), round(resid(fitF.yAlin),4), expectationF, datsampF[,14], datsampF[,4], round(resid(fitF.yAlinP),4))
+    datF.sort1 <- datF.out[order(datF.out[,5],decreasing=T), ]
     rankF <- seq(1,length(datsampF[,1]),1)
     datF.sort <- data.frame(datF.sort1,rankF)
-    colnames(datF.sort) <- c("ID","gen","yrsP", "e","exp","m","h","debEP","genRnk")
+    colnames(datF.sort) <- c("ID","gen","yrsP","cMs","e","exp","m","h","debEP","genRnk")
     datF.sort[,1] <- as.character(datF.sort[,1])
     datF.sort[,2] <- as.character(datF.sort[,2])
-    datF.sort[,5] <- as.character(datF.sort[,5])
+    datF.sort[,6] <- as.character(datF.sort[,6])
     
     # men
     datsampM <- subset(dat.comb, gen=="M")
@@ -118,48 +118,49 @@ epsilonIndexFunc <- function(datsamp, bygender='no', sortindex='e') {
     
     ## calculate expectation relative to sample
     expectationM <- as.character(ifelse(resid(fitM.yAlin) > 0, "above", "below"))
-    datM.out <- data.frame(datsampM[,1], datsampM[,2], datsampM[,7], round(resid(fitM.yAlin),4), expectationM, datsampM[,14], datsampM[,4], round(resid(fitM.yAlinP),4))
-    datM.sort1 <- datM.out[order(datM.out[,4],decreasing=T),1:8]
+    datM.out <- data.frame(datsampM[,1], datsampM[,2], datsampM[,7], round(scale(datsampM[,17], scale=T, center=F),4), round(resid(fitM.yAlin),4), expectationM, datsampM[,14], datsampM[,4], round(resid(fitM.yAlinP),4))
+    datM.sort1 <- datM.out[order(datM.out[,5],decreasing=T), ]
     rankM <- seq(1,length(datsampM[,1]),1)
     datM.sort <- data.frame(datM.sort1,rankM)
-    colnames(datM.sort) <- c("ID","gen","yrsP", "e","exp","m","h","debEP","genRnk")
+    colnames(datM.sort) <- c("ID","gen","yrsP","cMs","e","exp","m","h","debEP","genRnk")
     datM.sort[,1] <- as.character(datM.sort[,1])
     datM.sort[,2] <- as.character(datM.sort[,2])
-    datM.sort[,5] <- as.character(datM.sort[,5])
+    datM.sort[,6] <- as.character(datM.sort[,6])
     
     # combine women & men subsets & re-rank
     datFM <- rbind(datF.sort,datM.sort)
-    datFM.sort1 <- datFM[order(datFM[,4],decreasing=T),1:9]
+    datFM.sort1 <- datFM[order(datFM[,5],decreasing=T), ]
     debRnk <- seq(1,length(datFM.sort1[,1]),1)
     datFM.sort <- data.frame(datFM.sort1,debRnk)
-    colnames(datFM.sort)[1:9] <- colnames(datFM)
-    colnames(datFM.sort)[4] <- "genE"
-    datFM.sort[,4] <- round(datFM.sort[,4],4)
+    #colnames(datFM.sort)[1:10] <- colnames(datFM)
+    colnames(datFM.sort)[5] <- "genE"
+    datFM.sort[,5] <- round(datFM.sort[,5],4)
     
     # add rank from pooled sample
-    orig.rank <- dat.sort[,c(1,4,5,9)]
+    orig.rank <- dat.sort[, c(1,4,5,6,10)]
     datFM.mrg <- merge(datFM.sort, orig.rank, by="ID", all=F, no.dups=T)
-    colnames(datFM.mrg)[11] <- "poolE"
-    datFM.mrg[,11] <- round(datFM.mrg[,11], 4)
-    datFM.mrg[,12] <- round(as.numeric(datFM.mrg[,12]), 4)
-    colnames(datFM.mrg)[13] <- "poolRnk"
-    full.out1 <- datFM.mrg[order(datFM.mrg[,10],decreasing=F), 1:13]  
+    colnames(datFM.mrg)[13] <- "poolE"
+    datFM.mrg[,13] <- round(datFM.mrg[,13], 4)
+    datFM.mrg[,14] <- round(as.numeric(datFM.mrg[,14]), 4)
+    datFM.mrg[,12] <- round(datFM.mrg[,12], 4)
+    colnames(datFM.mrg)[15] <- "poolRnk"
+    full.out1 <- datFM.mrg[order(datFM.mrg[,11],decreasing=F), ]  
     
     # sort on desired metric & recalculate expectation based on sort metric
     # 'e' = pooled; 'ep' = normalised; 'd' = gender-debiased; 'dp' = normalised gender-debiased 
     if (sortindex == 'd') {
-      sortout <- full.out1[order(full.out1[,10],decreasing=F), 1:13]}
+      sortout <- full.out1[order(full.out1[,11],decreasing=F), 1:15]}
     if (sortindex == 'e') {
-      sortout <- full.out1[order(full.out1[,11],decreasing=T), 1:13]
-      sortout[,5] <- as.character(ifelse(sortout[,11] > 0, 'above', 'below'))}
+      sortout <- full.out1[order(full.out1[,15],decreasing=F), 1:15]
+      sortout[,6] <- as.character(ifelse(sortout[,13] > 0, 'above', 'below'))}
     if (sortindex == 'ep') {
-      sortout1 <- full.out1[order(full.out1[,12],decreasing=T), 1:13]
-      sortout1[,5] <- ifelse(sortout1[,12] > 0, 'above', 'below')
+      sortout1 <- full.out1[order(full.out1[,14],decreasing=T), 1:15]
+      sortout1[,6] <- ifelse(sortout1[,14] > 0, 'above', 'below')
       ePRnk <- seq(1,dim(sortout1)[1], by=1)
       sortout <- data.frame(sortout1,ePRnk)}
     if (sortindex == 'dp') {
-      sortout1 <- full.out1[order(full.out1[,8],decreasing=T), 1:13]
-      sortout1[,5] <- ifelse(sortout1[,8] > 0, 'above', 'below')
+      sortout1 <- full.out1[order(full.out1[,9],decreasing=T), 1:15]
+      sortout1[,6] <- ifelse(sortout1[,9] > 0, 'above', 'below')
       ePdebRnk <- seq(1,dim(sortout1)[1], by=1)
       sortout <- data.frame(sortout1,ePdebRnk)}
   } # end bygender = yes if statement
@@ -167,9 +168,10 @@ epsilonIndexFunc <- function(datsamp, bygender='no', sortindex='e') {
   if (bygender == "no") {
     full.out <- dat.sort
     full.out[,4] <- round(full.out[,4], 4)
-    full.out[,5] <- round(as.numeric(full.out[,5]), 4)
-    colnames(full.out)[4] <- "poolE"
-    colnames(full.out)[9] <- "poolRnk"
+    full.out[,5] <- round(full.out[,5], 4)
+    full.out[,6] <- round(as.numeric(full.out[,6]), 4)
+    colnames(full.out)[5] <- "poolE"
+    colnames(full.out)[10] <- "poolRnk"
     sortout <- full.out
   } # end bygender = no if statement
   
