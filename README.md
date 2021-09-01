@@ -4,7 +4,7 @@
 
 Prof Corey J. A. Bradshaw <br>
 <a href="http://globalecologyflinders.com" target="_blank">Global Ecology</a>, <a href="http://flinders.edu.au" target="_blank">Flinders University</a>, Adelaide, Australia <br>
-October 2020 <br>
+September 2021 <br>
 <a href=mailto:corey.bradshaw@flinders.edu.au>e-mail</a> <br>
 
 Existing citation-based indices used to rank research performance do not permit a fair comparison of researchers among career stages or disciplines, nor do they treat women and men equally. We designed the ε-index, which is simple to calculate, based on open-access data, corrects for disciplinary variation, can be adjusted for career breaks, and sets a sample-specific threshold above and below which a researcher is deemed to be performing above or below expectation.
