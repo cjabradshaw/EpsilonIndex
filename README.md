@@ -1,5 +1,7 @@
 # <i>ε</i>-index
 
+<img align="right" src="epsilonIndex logo.png" alt="ε-index" width="200" style="margin-top: 20px">
+
 <a target="_blank" href="https://cran.r-project.org">R</a> function to calculate the <i>ε</i>-index of a researcher's relative citation performance
 
 Prof Corey J. A. Bradshaw <br>
